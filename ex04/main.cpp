@@ -15,14 +15,13 @@ int main(int ac, char **av)
     {
         std::ifstream myflu(av[1]);
         while (getline(myflu, buf)){
-            all = buf + "\n";
+            all += buf + "\n";
             //std::cout << all;
         }
         std::size_t found;
         found = 0;
         while(found != std::string::npos){
             found = all.find(s1);
-            std::cout << found << std::endl;
             if (found != std::string::npos)
             {
                 all.erase(found, s1.size());
