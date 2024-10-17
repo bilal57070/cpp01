@@ -24,5 +24,15 @@ Harl::~Harl(){
 
 void Harl::complain(std::string lvl){
     void (Harl::*ptr[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-    ptr[lvl]();
+    int	lvln;
+	std::string level[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int	i;
+
+	i = 0;
+	while (i < 4){
+		if (level[i] == lvl)
+			lvln = i;
+		i++;
+	}
+	(this->*ptr[lvln])();
 }
