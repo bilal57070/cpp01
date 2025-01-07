@@ -9,11 +9,19 @@ int main(int ac, char **av)
     std::string all;
     std::string end;
 
+    if (ac != 4){
+        std::cout << "no good args" << std::endl;
+        return (1);
+    }
     s1 = av[2];
     s2 = av[3];
     if (ac == 4)
     {
         std::ifstream myflu(av[1]);
+        if (!myflu){
+            std::cout << "file does not exist" << std::endl;
+            return (1);
+        }
         while (getline(myflu, buf)){
             all += buf + "\n";
             //std::cout << all;
